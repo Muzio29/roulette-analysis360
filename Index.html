@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Roulette Extreme - Software di analisi roulette</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg-dark: #05060a;
+            --bg-section: #0b0d14;
+            --accent: #e63946;
+            --accent-soft: #ffb703;
+            --text-main: #f5f5f5;
+            --text-muted: #b0b0b0;
+            --card-bg: #11131c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #141824 0, #05060a 55%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-soft);
+        }
+
+        .hero {
+            padding: 60px 8% 40px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--accent-soft);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .hero-tag-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin: 18px 0 10px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            max-width: 520px;
+            font-size: 0.98rem;
+        }
+
+        .hero-buttons {
+            margin: 26px 0 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+            color: #fff;
+            box-shadow: 0 0 18px rgba(230, 57, 70, 0.45);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 24px rgba(230, 57, 70, 0.7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-right {
+            background: radial-gradient(circle at top left, rgba(230, 57, 70, 0.22), transparent 55%);
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .hero-card {
+            background: rgba(5, 6, 10, 0.9);
+            border-radius: 14px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-card-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .hero-card-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .hero-card-dot.red { background: #ff5f57; }
+        .hero-card-dot.yellow { background: #febc2e; }
+        .hero-card-dot.green { background: #28c840; }
+
+        .hero-card-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-card-main {
+            background: linear-gradient(145deg, #10131f, #05060a);
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-card-main h2 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .hero-card-main p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .metric {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 6px 8px;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .metric-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .metric-value.red { color: #ff6b6b; }
+        .metric-value.green { color: #8bc34a; }
+        .metric-value.yellow { color: #ffb703; }
+
+        .section {
+            padding: 40px 8%;
+            background: var(--bg-section);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .section.alt {
+            background: #05060a;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .feature-title {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .feature-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .list {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-left: 16px;
+        }
+
+        .list li {
+            margin-bottom: 4px;
+        }
+
+        .pricing-card {
+            max-width: 420px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .price {
+            font-size: 1.6rem;
+            margin: 6px 0;
+        }
+
+        .price span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .faq-item {
+            margin-bottom: 14px;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .faq-a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            padding: 18px 8%;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: #05060a;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+                padding-top: 30px;
+            }
+            .hero-right {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 14px 5%;
+            }
+            .hero, .section, footer {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><span>Roulette</span> Extreme</div>
+    <nav class="nav-links">
+        <a href="#funzioni">Funzioni</a>
+        <a href="#demo">Demo</a>
+        <a href="#prezzo">Versione completa</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contatti">Contatti</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-tag">
+            <div class="hero-tag-dot"></div>
+            Software di analisi roulette
+        </div>
+        <h1><span>Roulette Extreme</span><br>Analisi statistica professionale, senza compromessi.</h1>
+        <p class="hero-subtitle">
+            Dashboard potenti, calcoli immediati e una demo gratuita per provare tutte le funzioni.
+            Nessuna promessa irrealistica: solo dati, numeri e strumenti seri per chi vuole analizzare davvero.
+        </p>
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="window.location.href='#demo'">Scarica la Demo</button>
+            <button class="btn-secondary" onclick="window.location.href='#prezzo'">Acquista la Versione Completa</button>
+        </div>
+        <p class="hero-note">
+            Analisi reali, dati concreti. Nessuna previsione “magica”.
+        </p>
+    </div>
+
+    <div class="hero-right">
+        <div class="hero-card">
+            <div class="hero-card-header">
+                <div class="hero-card-dots">
+                    <div class="hero-card-dot red"></div>
+                    <div class="hero-card-dot yellow"></div>
+                    <div class="hero-card-dot green"></div>
+                </div>
+                <div class="hero-card-title">Sessione attiva · Roulette Extreme</div>
+            </div>
+            <div class="hero-card-main">
+                <h2>Panoramica statistica</h2>
+                <p>Ritardi, frequenze e distribuzioni aggiornate in tempo reale mentre inserisci i numeri.</p>
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Ritardo max</div>
+                        <div class="metric-value.red">27 spin</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Numero più frequente</div>
+                        <div class="metric-value.green">17</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Copertura settori</div>
+                        <div class="metric-value.yellow">68%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="funzioni" class="section alt">
+    <h2 class="section-title">Analisi professionale, senza compromessi</h2>
+    <p class="section-subtitle">
+        Roulette Extreme è progettato per chi cerca uno strumento serio, stabile e affidabile.
+        Tutte le analisi sono aggiornate in tempo reale mentre inserisci i numeri.
+    </p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3 class="feature-title">Statistiche avanzate</h3>
+            <p class="feature-text">
+                Analisi di ritardi, frequenze, distribuzioni e andamento delle combinazioni nel tempo.
+            </p>
+        </div>
+        <div class="feature-card">
+            <h3 class="feature-title">Dashboard chiare</h3>
+            <p class="feature-text">
+                Indicatori visivi, colorazioni dinamiche e layout pensato per leggere i dati in un colpo d’occhio.
+            </p>
+        </div>
+        <div class="feature-card">
+            <h3 class="feature-title">Settori e combinazioni</h3>
+            <p class="feature-text">
+                Studio di settori, cadenze, cavalli, terzine e altre combinazioni rilevanti.
+            </p>
+        </div>
+        <div class="feature-card">
+            <h3 class="feature-title">Storico sessioni</h3>
+            <p class="feature-text">
+                Salvataggio delle sessioni, consultazione dello storico e confronto tra diverse giocate.
+            </p>
+        </div>
+        <div class="feature-card">
+            <h3 class="feature-title">Interfaccia moderna</h3>
+            <p class="feature-text">
+                Design pulito, reattivo e pensato per l’uso continuativo, senza confusione.
+            </p>
+        </div>
+        <div class="feature-card">
+            <h3 class="feature-title">Demo completa</h3>
+            <p class="feature-text">
+                Tutte le funzioni attive, con un semplice limite sul numero di spin inseribili.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="demo" class="section">
+    <h2 class="section-title">Prova la Demo gratuita</h2>
+    <p class="section-subtitle">
+        La demo ti permette di utilizzare tutte le funzioni del software, con un limite sul numero di spin.
+        È il modo migliore per scoprire la potenza di Roulette Extreme senza impegno.
+    </p>
+
+    <button class="btn-primary" onclick="window.location.href='LINK_DEMO'">
+        Scarica la Demo
+    </button>
+
+    <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted);">
+        Sostituisci <strong>LINK_DEMO</strong> con il link reale al file di installazione o alla pagina di download.
+    </p>
+</section>
+
+<section id="prezzo" class="section alt">
+    <h2 class="section-title">Versione completa</h2>
+    <p class="section-subtitle">
+        Sblocca l’utilizzo illimitato del software e accedi a tutte le funzioni senza limiti di spin.
+    </p>
+
+    <div class="pricing-card">
+        <h3>Licenza completa Roulette Extreme</h3>
+        <p class="price">
+            € 0,00 <span>(imposta tu il prezzo reale)</span>
+        </p>
+        <ul class="list">
+            <li>Licenza permanente</li>
+            <li>Aggiornamenti minori gratuiti</li>
+            <li>Supporto via email</li>
+            <li>Attivazione immediata tramite codice</li>
+            <li>Nessun limite di spin</li>
+        </ul>
+        <br>
+        <button class="btn-primary" onclick="window.location.href='LINK_ACQUISTO'">
+            Acquista ora
+        </button>
+        <p style="margin-top:10px;font-size:0.8rem;color:var(--text-muted);">
+            Sostituisci <strong>LINK_ACQUISTO</strong> con il link a Gumroad, Paddle o alla tua pagina di pagamento.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Perché Roulette Extreme è diverso</h2>
+    <p class="section-subtitle">
+        Molti strumenti promettono risultati impossibili. Roulette Extreme invece si basa su ciò che conta davvero:
+        statistica pura, visualizzazione chiara dei dati e strumenti professionali per chi vuole analizzare, non indovinare.
+    </p>
+
+    <ul class="list">
+        <li>Nessuna previsione irrealistica o “metodi miracolosi”</li>
+        <li>Calcoli affidabili e trasparenti</li>
+        <li>Struttura veloce e modulare</li>
+        <li>Pensato per utenti seri e appassionati</li>
+        <li>Protezione avanzata contro la pirateria</li>
+    </ul>
+</section>
+
+<section id="faq" class="section alt">
+    <h2 class="section-title">Domande frequenti</h2>
+
+    <div class="faq-item">
+        <div class="faq-q">La demo ha limitazioni?</div>
+        <div class="faq-a">
+            Sì, la demo permette di usare tutte le funzioni ma con un limite di spin.
+            Serve per testare il software senza restrizioni tecniche sulle funzioni.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Come funziona l’attivazione della versione completa?</div>
+        <div class="faq-a">
+            Dopo l’acquisto riceverai un codice di attivazione. Inseriscilo nel software e la versione completa sarà
+            immediatamente disponibile.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Su quali sistemi funziona?</div>
+        <div class="faq-a">
+            Il software è compatibile con Windows 7, 8, 10 e 11.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Posso trasferire la licenza su un altro PC?</div>
+        <div class="faq-a">
+            La licenza è legata all’hardware del computer. Per trasferimenti particolari puoi contattare il supporto.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Riceverò aggiornamenti?</div>
+        <div class="faq-a">
+            Gli aggiornamenti minori sono inclusi. Le versioni maggiori potranno essere acquistate separatamente.
+        </div>
+    </div>
+</section>
+
+<section id="contatti" class="section">
+    <h2 class="section-title">Supporto e informazioni</h2>
+    <p class="section-subtitle">
+        Per assistenza, richieste o informazioni su Roulette Extreme:
+    </p>
+    <p style="font-size:0.95rem;">
+        Email: <strong>INSERISCI_TUA_EMAIL</strong>
+    </p>
+</section>
+
+<footer>
+    <div>© <span id="year"></span> Roulette Extreme · Tutti i diritti riservati.</div>
+    <div>Versione software: 1.0.0</div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
