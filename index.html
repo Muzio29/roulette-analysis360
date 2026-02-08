@@ -2,14 +2,14 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Roulette Extreme - Software avanzato per l’analisi della roulette</title>
+    <title>Roulette Analysis 360 - Analisi gratuita per roulette europea</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         :root {
             --bg-dark: #05060a;
             --bg-section: #0b0d14;
-            --accent: #e63946;
-            --accent-soft: #ffb703;
+            --accent: #00b4d8;
+            --accent-soft: #ffd166;
             --text-main: #f5f5f5;
             --text-muted: #b0b0b0;
             --card-bg: #11131c;
@@ -124,14 +124,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+            background: linear-gradient(135deg, var(--accent), #48cae4);
             color: #fff;
-            box-shadow: 0 0 18px rgba(230, 57, 70, 0.45);
+            box-shadow: 0 0 18px rgba(0, 180, 216, 0.45);
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 0 24px rgba(230, 57, 70, 0.7);
+            box-shadow: 0 0 24px rgba(0, 180, 216, 0.7);
         }
 
         .btn-secondary {
@@ -150,7 +150,7 @@
         }
 
         .hero-right {
-            background: radial-gradient(circle at top left, rgba(230, 57, 70, 0.22), transparent 55%);
+            background: radial-gradient(circle at top left, rgba(0, 180, 216, 0.22), transparent 55%);
             border-radius: 18px;
             padding: 16px;
         }
@@ -163,79 +163,11 @@
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
         }
 
-        .hero-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .hero-card-dots {
-            display: flex;
-            gap: 5px;
-        }
-
-        .hero-card-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-
-        .hero-card-dot.red { background: #ff5f57; }
-        .hero-card-dot.yellow { background: #febc2e; }
-        .hero-card-dot.green { background: #28c840; }
-
-        .hero-card-title {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .hero-card-main {
-            background: linear-gradient(145deg, #10131f, #05060a);
+        .hero-screenshot {
+            width: 100%;
             border-radius: 10px;
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: block;
         }
-
-        .hero-card-main h2 {
-            font-size: 1rem;
-            margin-bottom: 6px;
-        }
-
-        .hero-card-main p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .hero-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 8px;
-            margin-top: 6px;
-        }
-
-        .metric {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-            padding: 6px 8px;
-        }
-
-        .metric-label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        .metric-value {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .metric-value.red { color: #ff6b6b; }
-        .metric-value.green { color: #8bc34a; }
-        .metric-value.yellow { color: #ffb703; }
 
         .section {
             padding: 40px 8%;
@@ -291,22 +223,24 @@
             margin-bottom: 4px;
         }
 
-        .pricing-card {
-            max-width: 420px;
+        .donation-box {
+            max-width: 520px;
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 18px;
+            border-radius: 12px;
+            padding: 16px;
             border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 18px;
         }
 
-        .price {
-            font-size: 1.6rem;
-            margin: 6px 0;
+        .donation-title {
+            font-size: 1rem;
+            margin-bottom: 6px;
         }
 
-        .price span {
+        .donation-text {
             font-size: 0.85rem;
             color: var(--text-muted);
+            margin-bottom: 10px;
         }
 
         .faq-item {
@@ -357,18 +291,16 @@
                 font-size: 2.1rem;
             }
         }
-	
-
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo"><span>Roulette</span> Extreme</div>
+    <div class="logo"><span>Roulette</span> Analysis 360</div>
     <nav class="nav-links">
         <a href="#funzioni">Funzioni</a>
-        <a href="#demo">Demo</a>
-        <a href="#prezzo">Versione completa</a>
+        <a href="#download">Download</a>
+        <a href="#donazioni">Donazioni</a>
         <a href="#faq">FAQ</a>
         <a href="#contatti">Contatti</a>
     </nav>
@@ -378,159 +310,151 @@
     <div class="hero-left">
         <div class="hero-tag">
             <div class="hero-tag-dot"></div>
-            Software avanzato per roulette
+            Software gratuito per roulette europea
         </div>
-        <h1><span>Roulette Extreme</span><br>Analisi evoluta, tendenze reali, combinazioni intelligenti.</h1>
+        <h1><span>Roulette Analysis 360</span><br>Analisi completa, lettura pulita, zero costi.</h1>
         <p class="hero-subtitle">
-            Roulette Extreme interpreta l’andamento reale del tavolo e individua le tendenze più attive del momento.
-            Un sistema moderno, dinamico e progettato per offrirti una lettura chiara e immediata.
+            Roulette Analysis 360 è uno strumento gratuito pensato per chi vuole analizzare l’andamento della roulette
+            in modo chiaro, ordinato e professionale. Nessuna teoria miracolosa, solo numeri e tendenze.
         </p>
         <div class="hero-buttons">
-            <button class="btn-primary" onclick="window.location.href='#demo'">Scarica la Demo</button>
-            </div>
+            <button class="btn-primary" onclick="window.location.href='#download'">Scarica gratis</button>
+            <button class="btn-secondary" onclick="window.location.href='#donazioni'">Sostieni il progetto</button>
+        </div>
         <p class="hero-note">
-            Analisi evolute, numeri reali. Nessuna promessa impossibile.
+            Utilizzo libero. Se il software ti è utile, una donazione è sempre ben accetta.
         </p>
     </div>
 
-   <div class="hero-right">
-    <div class="hero-card">
-        <img src="immagini/roulette-extreme-1.png"
-             alt="Interfaccia Roulette Extreme"
-             class="hero-screenshot">
-    </div>
-</div>
-
-                </div>
-            </div>
+    <div class="hero-right">
+        <div class="hero-card">
+            <img src="immagini/roulette-analysis-360-1.png"
+                 alt="Interfaccia Roulette Analysis 360"
+                 class="hero-screenshot">
         </div>
     </div>
 </section>
 
 <section id="funzioni" class="section alt">
-    <h2 class="section-title">Analisi professionale, senza compromessi</h2>
+    <h2 class="section-title">Strumenti di analisi, senza complicazioni</h2>
     <p class="section-subtitle">
-        Roulette Extreme elabora ogni colpo in tempo reale e identifica pattern, tendenze e combinazioni ad alta attività.
-        Un sistema progettato per chi vuole una lettura chiara e immediata dell’andamento del tavolo.
+        Roulette Analysis 360 ti aiuta a leggere l’andamento del tavolo in modo ordinato, senza promesse irrealistiche.
+        È pensato per chi vuole tenere traccia di numeri, ritardi e tendenze in modo semplice e strutturato.
     </p>
 
     <div class="features-grid">
         <div class="feature-card">
-            <h3 class="feature-title">Tendenze dinamiche</h3>
+            <h3 class="feature-title">Analisi dei ritardi</h3>
             <p class="feature-text">
-                Identificazione dei numeri più attivi e delle variazioni recenti.
+                Visualizzazione chiara dei ritardi su numeri e combinazioni principali.
             </p>
         </div>
         <div class="feature-card">
-            <h3 class="feature-title">Dashboard reattiva</h3>
+            <h3 class="feature-title">Dashboard ordinata</h3>
             <p class="feature-text">
-                Indicatori visivi chiari, aggiornati a ogni colpo.
+                Sezioni organizzate per numeri, chance semplici, dozzine, colonne e altro.
             </p>
         </div>
         <div class="feature-card">
-            <h3 class="feature-title">Settore RX</h3>
+            <h3 class="feature-title">Storico colpi</h3>
             <p class="feature-text">
-                Analisi del settore più influente basata su pesi dinamici.
+                Inserimento manuale dei colpi e consultazione dello storico della sessione.
             </p>
         </div>
         <div class="feature-card">
-            <h3 class="feature-title">Storico sessioni</h3>
+            <h3 class="feature-title">Focus sulla roulette europea</h3>
             <p class="feature-text">
-                Salvataggio automatico e confronto tra diverse sessioni.
+                Strutturato per la roulette europea a singolo zero, senza varianti americane.
             </p>
         </div>
         <div class="feature-card">
-            <h3 class="feature-title">Interfaccia moderna</h3>
+            <h3 class="feature-title">Interfaccia leggibile</h3>
             <p class="feature-text">
-                Fluida, leggibile e progettata per l’uso continuativo.
+                Pensata per l’uso continuativo, con informazioni sempre sotto controllo.
             </p>
         </div>
         <div class="feature-card">
-            <h3 class="feature-title">Demo completa</h3>
+            <h3 class="feature-title">Aggiornamenti futuri</h3>
             <p class="feature-text">
-                Tutte le funzioni attive, con un limite di spin.
+                Il progetto può evolvere nel tempo, anche grazie al feedback degli utenti.
             </p>
         </div>
     </div>
 </section>
 
-<section id="demo" class="section">
-    <h2 class="section-title">Prova la Demo gratuita</h2>
+<section id="download" class="section">
+    <h2 class="section-title">Download gratuito</h2>
     <p class="section-subtitle">
-        La demo ti permette di testare tutte le funzioni principali di Roulette Extreme.
-        L’unica limitazione è il numero massimo di spin inseribili.
+        Roulette Analysis 360 è completamente gratuito. Puoi scaricarlo e usarlo liberamente sul tuo PC Windows.
     </p>
 
-    <button class="btn-primary" onclick="window.location.href='LINK_DEMO'">
-        Scarica la Demo
+    <button class="btn-primary" onclick="window.location.href='LINK_DOWNLOAD'">
+        Scarica Roulette Analysis 360
     </button>
 
     <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted);">
-        Sostituisci <strong>LINK_DEMO</strong> con il link reale al file di installazione o alla pagina di download.
-		
+        Sostituisci <strong>LINK_DOWNLOAD</strong> con il link reale al file di installazione o alla pagina di download.
     </p>
 </section>
 
-
-<section class="section">
-    <h2 class="section-title">Perché Roulette Extreme è diverso</h2>
+<section id="donazioni" class="section alt">
+    <h2 class="section-title">Supporta lo sviluppo</h2>
     <p class="section-subtitle">
-        Roulette Extreme non si basa su teorie astratte o metodi irrealistici.
-        Analizza ciò che accade realmente al tavolo e costruisce combinazioni basate su:
+        Il software è gratuito e rimarrà tale. Se lo trovi utile e vuoi sostenere il progetto, puoi fare una donazione.
     </p>
 
-    <ul class="list">
-        <li>attività recente</li>
-        <li>anomalie significative</li>
-        <li>settore dinamico RX</li>		      
-        <li>continuità dei colpi</li>
-        <li>stabilità del tavolo</li>
-    </ul>
+    <div class="donation-box">
+        <div class="donation-title">Donazione volontaria</div>
+        <p class="donation-text">
+            Le donazioni aiutano a mantenere il progetto vivo, migliorare le funzioni esistenti e svilupparne di nuove.
+            Non è obbligatorio, ma è un modo concreto per dire “mi è stato utile”.
+        </p>
+        <button class="btn-secondary" onclick="window.location.href='LINK_PAYPAL'">
+            Dona con PayPal
+        </button>
+        <p style="margin-top:8px;font-size:0.8rem;color:var(--text-muted);">
+            Sostituisci <strong>LINK_PAYPAL</strong> con il link alla tua pagina PayPal (donazione o PayPal.me).
+        </p>
+    </div>
 </section>
 
-<section id="faq" class="section alt">
+<section id="faq" class="section">
     <h2 class="section-title">Domande frequenti</h2>
 
     <div class="faq-item">
-        <div class="faq-q">La demo ha limitazioni?</div>
+        <div class="faq-q">Il software è davvero gratuito?</div>
         <div class="faq-a">
-            Sì, puoi usare tutte le funzioni ma con un limite di spin. Serve per testare il software senza restrizioni tecniche.
+            Sì. Roulette Analysis 360 è completamente gratuito. Puoi usarlo senza limiti di tempo o funzioni bloccate.
         </div>
     </div>
 
     <div class="faq-item">
-        <div class="faq-q">Come funziona l’attivazione?</div>
+        <div class="faq-q">Le donazioni sono obbligatorie?</div>
         <div class="faq-a">
-            Dopo l’acquisto riceverai un codice di attivazione. Inseriscilo nel software e la versione completa sarà immediatamente disponibile.
+            No. Le donazioni sono facoltative. Se il software ti è utile e vuoi sostenere il progetto, sono ben accette.
         </div>
     </div>
 
     <div class="faq-item">
         <div class="faq-q">Su quali sistemi funziona?</div>
         <div class="faq-a">
-            Il software è compatibile con Windows 7, 8, 10 e 11.
+            Il software è pensato per Windows 7, 8, 10 e 11.
         </div>
     </div>
 
     <div class="faq-item">
-        <div class="faq-q">Posso trasferire la licenza?</div>
+        <div class="faq-q">Il software promette vincite sicure?</div>
         <div class="faq-a">
-            La licenza è legata al PC. Per esigenze particolari puoi contattare il supporto.
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-q">Riceverò aggiornamenti?</div>
-        <div class="faq-a">
-            Gli aggiornamenti minori sono inclusi. Le versioni maggiori potranno essere acquistate separatamente.
+            No. Roulette Analysis 360 è uno strumento di analisi. Non esistono metodi sicuri per vincere alla roulette.
+            Usa sempre buon senso e gioca in modo responsabile.
         </div>
     </div>
 </section>
 
-<section id="contatti" class="section">
-    <h2 class="section-title">Supporto e informazioni</h2>
+<section id="contatti" class="section alt">
+    <h2 class="section-title">Supporto e contatti</h2>
     <p class="section-subtitle">
-        Per assistenza, richieste o informazioni su Roulette Extreme:
+        Per suggerimenti, segnalazioni o richieste relative a Roulette Analysis 360:
     </p>
     <p style="font-size:0.95rem;">
         Email: <strong>muziosoft@gmail.com</strong>
@@ -538,8 +462,8 @@
 </section>
 
 <footer>
-    <div>© <span id="year"></span> Roulette Extreme · Tutti i diritti riservati.</div>
-    <div>Versione software: 1.3.0</div>
+    <div>© <span id="year"></span> Roulette Analysis 360 · Software gratuito di analisi roulette.</div>
+    <div>Versione software: 1.0.0</div>
 </footer>
 
 <script>
