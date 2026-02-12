@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Roulette Analysis 360 - Analisi gratuita per roulette europea</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         :root {
             --bg-dark: #05060a;
@@ -36,16 +37,19 @@
         header {
             padding: 18px 8%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .logo {
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            font-size: 0.95rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
+            text-align: center;
         }
 
         .logo span {
@@ -54,9 +58,10 @@
 
         .nav-links {
             display: flex;
-            gap: 18px;
+            gap: 20px;
             font-size: 0.9rem;
             color: var(--text-muted);
+            justify-content: center;
         }
 
         .nav-links a:hover {
@@ -64,11 +69,33 @@
         }
 
         .hero {
-            padding: 60px 8% 40px;
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+            padding: 0 8%;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .intro-screenshot {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .intro-img {
+            width: 60%;
+            max-width: 650px;
+            border-radius: 14px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .hero-tag {
@@ -82,6 +109,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
+            margin: 0 auto;
         }
 
         .hero-tag-dot {
@@ -91,25 +119,17 @@
             background: var(--accent-soft);
         }
 
-        .hero h1 {
-            font-size: 2.6rem;
-            margin: 18px 0 10px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
         .hero-subtitle {
             color: var(--text-muted);
-            max-width: 520px;
+            max-width: 700px;
+            margin: 20px auto;
             font-size: 0.98rem;
         }
 
         .hero-buttons {
-            margin: 26px 0 10px;
+            margin-top: 20px;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 12px;
         }
 
@@ -147,32 +167,14 @@
         .hero-note {
             font-size: 0.8rem;
             color: var(--text-muted);
-        }
-
-        .hero-right {
-            background: radial-gradient(circle at top left, rgba(0, 180, 216, 0.22), transparent 55%);
-            border-radius: 18px;
-            padding: 16px;
-        }
-
-        .hero-card {
-            background: rgba(5, 6, 10, 0.9);
-            border-radius: 14px;
-            padding: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero-screenshot {
-            width: 100%;
-            border-radius: 10px;
-            display: block;
+            margin-top: 10px;
         }
 
         .section {
             padding: 40px 8%;
             background: var(--bg-section);
             border-top: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
         }
 
         .section.alt {
@@ -190,51 +192,13 @@
             margin-bottom: 18px;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .feature-title {
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-
-        .feature-text {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .list {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-left: 16px;
-        }
-
-        .list li {
-            margin-bottom: 4px;
-        }
-
         .donation-box {
             max-width: 520px;
             background: var(--card-bg);
             border-radius: 12px;
             padding: 16px;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            margin-top: 18px;
-        }
-
-        .donation-title {
-            font-size: 1rem;
-            margin-bottom: 6px;
+            margin: 0 auto;
         }
 
         .donation-text {
@@ -245,6 +209,10 @@
 
         .faq-item {
             margin-bottom: 14px;
+            text-align: left;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .faq-q {
@@ -268,56 +236,17 @@
             flex-wrap: wrap;
             gap: 8px;
         }
-
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-                padding-top: 30px;
-            }
-            .hero-right {
-                order: -1;
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                padding: 14px 5%;
-            }
-            .hero, .section, footer {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-            .hero h1 {
-                font-size: 2.1rem;
-            }
-        }
-		.intro-screenshot {
-    width: 100%;
-    padding: 30px 8% 0;
-    display: flex;
-    justify-content: center;
-}
-
-.intro-img {
-    width: 25%;              /* riduce la dimensione */
-    max-width: 700px;        /* limite massimo */
-    border-radius: 14px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-
-</style>
-
+    </style>
 </head>
+
 <body>
 
-<header style="text-align:center;">
-    <div class="logo" style="text-align:center;">
+<header>
+    <div class="logo">
         <span>Roulette</span> Analysis 360
     </div>
 
-    <nav class="nav-links" style="display:flex; justify-content:center; gap:20px;">
+    <nav class="nav-links">
         <a href="#funzioni">Funzioni</a>
         <a href="#download">Download</a>
         <a href="#donazioni">Donazioni</a>
@@ -326,77 +255,70 @@
     </nav>
 </header>
 
-<section class="hero" style="text-align:center; margin-top:20px;">
+<section class="hero">
 
-    <h1 style="margin-bottom:20px;">
-        <span>Roulette</span> Analysis 360
-    </h1>
+    <h1><span>Roulette</span> Analysis 360</h1>
 
-    <!-- IMMAGINE SOTTO IL TITOLO -->
-    <div class="intro-screenshot" style="text-align:center; margin-bottom:25px;">
+    <div class="intro-screenshot">
         <img src="immagini/roulette-analysis-360-hero.png" 
              alt="Screenshot Roulette Analysis 360" 
-             class="intro-img"
-             style="width:60%; max-width:650px;">
+             class="intro-img">
     </div>
 
-    <div class="hero-tag" style="margin:0 auto;">
+    <div class="hero-tag">
         <div class="hero-tag-dot"></div>
         Software gratuito per roulette europea
     </div>
 
-    <p class="hero-subtitle" style="max-width:700px; margin:20px auto;">
+    <p class="hero-subtitle">
         Roulette Analysis 360 è uno strumento gratuito pensato per chi vuole analizzare l’andamento della roulette
         in modo chiaro, ordinato e professionale. Nessuna teoria miracolosa, solo numeri e tendenze.
     </p>
 
-    <div class="hero-buttons" style="margin-top:20px; display:flex; justify-content:center; gap:12px;">
+    <div class="hero-buttons">
         <button class="btn-primary" onclick="window.location.href='#download'">Scarica gratis</button>
         <button class="btn-secondary" onclick="window.location.href='#donazioni'">Sostieni il progetto</button>
     </div>
 
-    <p class="hero-note" style="margin-top:10px;">
+    <p class="hero-note">
         Utilizzo libero. Se il software ti è utile, una donazione è sempre ben accetta.
     </p>
 
 </section>
 
-<section id="download" class="section" style="text-align:center;">
+<section id="download" class="section">
 
     <h2 class="section-title">Download gratuito</h2>
 
-    <p class="section-subtitle" style="max-width:700px; margin:0 auto;">
+    <p class="section-subtitle">
         Roulette Analysis 360 è completamente gratuito. Puoi scaricarlo e usarlo liberamente sul tuo PC Windows.
     </p>
 
-    <button class="btn-primary" onclick="window.location.href='LINK_DOWNLOAD'" style="margin-top:20px;">
+    <button class="btn-primary" onclick="window.location.href='LINK_DOWNLOAD'">
         Scarica Roulette Analysis 360
     </button>
 
-    <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted); max-width:700px; margin-left:auto; margin-right:auto;">
-        Sostituisci <strong>LINK_DOWNLOAD</strong> con il link reale al file di installazione o alla pagina di download.
+    <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted);">
+        Sostituisci <strong>LINK_DOWNLOAD</strong> con il link reale al file di installazione.
     </p>
 
 </section>
 
-
-<section id="donazioni" class="section alt" style="text-align:center;">
+<section id="donazioni" class="section alt">
 
     <h2 class="section-title">Supporta lo sviluppo</h2>
     <p class="section-subtitle">
         Il software è gratuito e rimarrà tale. Se lo trovi utile e vuoi sostenere il progetto, puoi fare una donazione.
     </p>
 
-    <div class="donation-box" style="text-align:center; margin:0 auto;">
+    <div class="donation-box">
 
-        <!-- Badge Donationware -->
         <div style="margin-bottom:12px;">
             <img src="https://img.shields.io/badge/Donationware-Sostieni%20il%20progetto-00b4d8?style=flat-square&labelColor=0b0d14" 
                  alt="Donationware Badge">
         </div>
 
-        <!-- Frase premium-dark ingrandita -->
-        <p class="donation-text" style="font-size:1.05rem; line-height:1.65; text-align:center; max-width:700px; margin:0 auto 20px;">
+        <p class="donation-text" style="font-size:1.05rem; line-height:1.65;">
             <strong style="color:var(--accent); font-size:1.15rem;">
                 Roulette Analysis 360 è gratuito.
             </strong><br>
@@ -404,8 +326,7 @@
             alle nuove funzionalità e alle versioni sperimentali riservate ai sostenitori.
         </p>
 
-        <!-- Pulsante PayPal con immagine personalizzata -->
-        <div style="text-align:center; margin-top:12px;">
+        <div style="margin-top:12px;">
             <a href="https://www.paypal.com/donate/?hosted_button_id=2LZ5RDDT6Z8V4" target="_blank">
                 <img src="immagini/paypal-donate-button.png"
                      alt="Dona con PayPal"
@@ -415,8 +336,6 @@
 
     </div>
 </section>
-
-
 
 <section id="faq" class="section">
     <h2 class="section-title">Domande frequenti</h2>
